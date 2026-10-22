@@ -8,10 +8,16 @@ export type Lang = "en" | "kn";
 export const CONTACT = {
   owner: "Roopa S",
   designer: "Bramha",
-  phone: "+91 00000 00000", // TODO: real phone
-  whatsapp: "910000000000", // TODO: WhatsApp number, digits only with country code
-  email: "hello@your-domain.com", // TODO: real email
-  city: "Your City, Karnataka", // TODO: city / full address
+  phone: "+91 89515 83124",
+  phoneRaw: "+918951583124",
+  whatsapp: "918951583124", // digits only, with country code
+  email: "roopas51788@gmail.com",
+  city: "Bengaluru, Karnataka",
+  // Enquiries are delivered to this email by FormSubmit (free service).
+  formEndpoint: "https://formsubmit.co/ajax/roopas51788@gmail.com",
+  // OPTIONAL but recommended: free Web3Forms access key (public, safe to put here).
+  // Get it at https://web3forms.com (enter roopas51788@gmail.com; key arrives by email), paste between the quotes.
+  web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "",
 };
 
 // Only fact supplied by the owner. Everything else is qualitative on purpose.
@@ -148,6 +154,7 @@ export const ABOUT = {
   },
   yearsLabel: { en: "years in business", kn: "ವರ್ಷಗಳ ವ್ಯವಹಾರ" },
   ownerTitle: { en: "Founder & Owner", kn: "ಸಂಸ್ಥಾಪಕರು ಮತ್ತು ಮಾಲೀಕರು" },
+  ownerPhoto: "/my_photos/roopa.jpeg",
   values: [
     { t: { en: "Checked at every stage", kn: "ಪ್ರತಿ ಹಂತದಲ್ಲೂ ಪರಿಶೀಲನೆ" }, d: { en: "From cutting to packing, quality is inspected — not left to the end.", kn: "ಕಟಿಂಗ್‌ನಿಂದ ಪ್ಯಾಕಿಂಗ್‌ವರೆಗೆ ಗುಣಮಟ್ಟ ಪರಿಶೀಲನೆ — ಕೊನೆಗೆ ಬಿಡುವುದಿಲ್ಲ." } },
     { t: { en: "Flexible ways to work", kn: "ಹೊಂದಿಕೊಳ್ಳುವ ವಿಧಾನ" }, d: { en: "Bring your own material or let us source it. You decide.", kn: "ನಿಮ್ಮ ಸಾಮಗ್ರಿ ತನ್ನಿ ಅಥವಾ ನಾವು ಹುಡುಕುತ್ತೇವೆ. ನಿರ್ಧಾರ ನಿಮ್ಮದು." } },
@@ -177,13 +184,23 @@ export const ORDER = {
   pant: { en: "Men's trousers", kn: "ಪುರುಷರ ಪ್ಯಾಂಟ್" },
   both: { en: "Both", kn: "ಎರಡೂ" },
   submit: { en: "Send Enquiry", kn: "ವಿಚಾರಣೆ ಕಳುಹಿಸಿ" },
-  // Form is display-only for now (owner's choice). No data leaves the browser.
+  sending: { en: "Sending…", kn: "ಕಳುಹಿಸುತ್ತಿದೆ…" },
+  thanksTitle: { en: "Thank you!", kn: "ಧನ್ಯವಾದಗಳು!" },
   thanks: {
-    en: "Thank you! The online form is not live yet — please reach us directly using the details below.",
-    kn: "ಧನ್ಯವಾದಗಳು! ಆನ್‌ಲೈನ್ ಫಾರ್ಮ್ ಇನ್ನೂ ಸಕ್ರಿಯವಾಗಿಲ್ಲ — ಕೆಳಗಿನ ವಿವರಗಳ ಮೂಲಕ ನೇರವಾಗಿ ಸಂಪರ್ಕಿಸಿ.",
+    en: "Your enquiry has been sent to Shri Jaya. We'll contact you soon.",
+    kn: "ನಿಮ್ಮ ವಿಚಾರಣೆ ಶ್ರೀ ಜಯಕ್ಕೆ ತಲುಪಿದೆ. ನಾವು ಶೀಘ್ರದಲ್ಲೇ ಸಂಪರ್ಕಿಸುತ್ತೇವೆ.",
   },
+  errorMsg: {
+    en: "Sorry, we couldn't send that. Please use WhatsApp or call us directly.",
+    kn: "ಕ್ಷಮಿಸಿ, ಕಳುಹಿಸಲು ಆಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ವಾಟ್ಸಾಪ್ ಅಥವಾ ಕರೆ ಮಾಡಿ.",
+  },
+  needMore: { en: "Please add your name and a phone number or email.", kn: "ದಯವಿಟ್ಟು ಹೆಸರು ಮತ್ತು ಫೋನ್ ಅಥವಾ ಇಮೇಲ್ ನೀಡಿ." },
   whatsapp: { en: "Chat on WhatsApp", kn: "ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಮಾತನಾಡಿ" },
+  waSend: { en: "Send on WhatsApp instead", kn: "ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಕಳುಹಿಸಿ" },
+  activation: { en: "Email service is being set up. Please use WhatsApp or call us for now.", kn: "ಇಮೇಲ್ ಸೇವೆ ಸಿದ್ಧಗೊಳ್ಳುತ್ತಿದೆ. ಸದ್ಯಕ್ಕೆ ವಾಟ್ಸಾಪ್ ಅಥವಾ ಕರೆ ಮಾಡಿ." },
+  another: { en: "Send another enquiry", kn: "ಇನ್ನೊಂದು ವಿಚಾರಣೆ" },
   waMsg: { en: "Hello Shri Jaya, I would like to enquire about an order.", kn: "ನಮಸ್ಕಾರ ಶ್ರೀ ಜಯ, ನಾನು ಆರ್ಡರ್ ಬಗ್ಗೆ ವಿಚಾರಿಸಲು ಬಯಸುತ್ತೇನೆ." },
+  callUs: { en: "Call", kn: "ಕರೆ" },
 };
 
 export const FOOTER = {

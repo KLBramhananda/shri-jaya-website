@@ -93,10 +93,10 @@ function Threads({ count }: { count: number }) {
   );
 }
 
-export default function ClothScene() {
+export default function ClothScene({ active = true }: { active?: boolean }) {
   const low = typeof window !== "undefined" && (window.innerWidth < 768 || (navigator.hardwareConcurrency ?? 8) <= 4);
   return (
-    <Canvas dpr={[1, low ? 1.4 : 1.8]} camera={{ position: [0, 0, 6.5], fov: 50 }} gl={{ antialias: !low, alpha: true, powerPreference: "high-performance" }} style={{ position: "absolute", inset: 0 }}>
+    <Canvas frameloop={active ? "always" : "never"} dpr={[1, low ? 1.4 : 1.8]} camera={{ position: [0, 0, 6.5], fov: 50 }} gl={{ antialias: !low, alpha: true, powerPreference: "high-performance" }} style={{ position: "absolute", inset: 0 }}>
       <Cloth low={low} />
       <Threads count={low ? 90 : 240} />
     </Canvas>

@@ -39,7 +39,7 @@ export default function Process() {
 
   const s = PROCESS.steps[active];
   return (
-    <section id="process" ref={root} className="relative flex min-h-screen items-center overflow-hidden bg-ink py-20 text-cream">
+    <section id="process" ref={root} className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink py-20 text-cream">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,#2e1f0f_0%,#1A120A_65%)]" />
       <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-6 px-5 sm:px-8 lg:grid-cols-2">
         <div className="order-2 lg:order-1">
