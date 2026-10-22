@@ -2,6 +2,7 @@
 import { FormEvent, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ORDER, CONTACT, t } from "@/lib/content";
+import { sendEnquiry } from "@/lib/send";
 import { useLang } from "@/lib/lang";
 import { Reveal, SectionHead, Magnetic } from "./ui";
 
@@ -46,47 +47,11 @@ export default function Order() {
     if (v._honey) return; // bot trap
     if (!validate(v)) return;
     setStatus("sending"); setNote("");
-    const text = summary(v);
-    try {
-      let ok = false; let msg = "";
-      if (CONTACT.web3formsKey) {
-        // Web3Forms: no activation step, delivers to the email the key was created with
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({
-            access_key: CONTACT.web3formsKey,
-            subject: `New enquiry from ${v.name} — Shri Jaya website`,
-            from_name: "Shri Jaya Website",
-            name: v.name,
-            ...(v.email ? { email: v.email } : {}),
-            phone: v.phone || "-",
-            business: v.business || "-",
-            message: text,
-            botcheck: "",
-          }),
-        });
-        const data = await res.json().catch(() => ({}));
-        ok = !!data.success; msg = String(data.message || "");
-      } else {
-        // FormSubmit: needs a ONE-TIME activation click from the email it sends to the owner
-        const res = await fetch(CONTACT.formEndpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({
-            _subject: `New enquiry from ${v.name} — Shri Jaya website`,
-            _template: "table", _captcha: "false",
-            Name: v.name, Business: v.business || "-", Phone: v.phone || "-", ...(v.email ? { email: v.email } : {}),
-            "Way of working": v.model === "b" ? "Full service (we source material)" : "Job work (customer supplies material)",
-            Garment: v.garment, Quantity: v.qty || "-", Message: v.msg || "-",
-          }),
-        });
-        const data = await res.json().catch(() => ({}));
-        ok = res.ok && (data.success === true || data.success === "true"); msg = String(data.message || "");
-        if (!ok && /activat/i.test(msg)) setNote("activation");
-      }
-      if (ok) setStatus("sent"); else { console.error("Enquiry not sent:", msg); setStatus("error"); }
-    } catch (e) { console.error("Enquiry failed:", e); setStatus("error"); }
+    const r = await sendEnquiry({
+      subject: `New enquiry from ${v.name} — Shri Jaya website`, name: v.name, email: v.email, phone: v.phone, text: summary(v),
+      fields: { Name: v.name, Business: v.business || "-", Phone: v.phone || "-", "Way of working": v.model === "b" ? "Full service (we source material)" : "Job work (customer supplies material)", Garment: v.garment, Quantity: v.qty || "-", Message: v.msg || "-" },
+    });
+    if (r.ok) setStatus("sent"); else { if (r.activation) setNote("activation"); setStatus("error"); }
   };
 
   const openWhatsApp = (form: HTMLFormElement | null) => {

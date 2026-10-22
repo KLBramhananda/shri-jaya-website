@@ -37,7 +37,7 @@ export default function Nav() {
             <span className="font-display text-xl tracking-[0.35em] text-cream hidden sm:block">SHRI JAYA</span>
           </button>
           <nav className="hidden items-center gap-8 lg:flex">
-            {NAV.map((n) => (<button key={n.id} onClick={() => go(n.id)} className="text-sm tracking-wide text-cream/80 transition hover:text-gold2">{t(n.label, lang)}</button>))}
+            {NAV.map((n) => n.href ? (<a key={n.id} href={n.href} className="rounded-full border border-gold/50 px-4 py-1.5 text-sm tracking-wide text-gold2 transition hover:bg-gold hover:text-ink">{t(n.label, lang)}</a>) : (<button key={n.id} onClick={() => go(n.id)} className="text-sm tracking-wide text-cream/80 transition hover:text-gold2">{t(n.label, lang)}</button>))}
             <LangBtn />
           </nav>
           <div className="flex items-center gap-3 lg:hidden">
@@ -53,7 +53,7 @@ export default function Nav() {
         {open && (
           <motion.div initial={{ clipPath: "circle(0% at 90% 5%)" }} animate={{ clipPath: "circle(150% at 90% 5%)" }} exit={{ clipPath: "circle(0% at 90% 5%)" }} transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }} className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-7 bg-ink">
             {NAV.map((n, i) => (
-              <motion.button key={n.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 + i * 0.07 }} onClick={() => { setOpen(false); setTimeout(() => go(n.id), 500); }} className="font-display text-4xl text-cream hover:text-gold2">{t(n.label, lang)}</motion.button>
+              <motion.button key={n.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 + i * 0.07 }} onClick={() => { setOpen(false); if (n.href) { window.location.href = n.href; } else setTimeout(() => go(n.id), 500); }} className={`font-display text-4xl hover:text-gold2 ${n.href ? "text-gold2" : "text-cream"}`}>{t(n.label, lang)}</motion.button>
             ))}
           </motion.div>
         )}

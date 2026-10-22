@@ -27,8 +27,8 @@ export default function Hero({ ready }: { ready: boolean }) {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-16 pt-28 sm:px-8">
         <motion.p initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}} transition={{ delay: 0.3, duration: 1 }} className="eyebrow mb-7 flex items-center gap-4"><span className="h-px w-10 bg-gold" />{t(HERO.eyebrow, lang)}</motion.p>
         <h1 className={`font-display font-medium text-cream ${lang === "kn" ? "text-[clamp(2.3rem,7.2vw,6rem)] leading-[1.3]" : "text-[clamp(3rem,10.5vw,8.6rem)] leading-[0.95]"}`}>
-          <span className="block overflow-hidden pb-[0.22em]"><motion.span className="block" {...rise(0.35)}>{t(HERO.line1, lang)}</motion.span></span>
-          <span className="block overflow-hidden pb-[0.28em]"><motion.span className="gold-text block italic" {...rise(0.5)}>{t(HERO.line2, lang)}</motion.span></span>
+          <span className="block overflow-hidden pb-[0.22em] -mb-[0.12em]"><motion.span className="block" {...rise(0.35)}>{t(HERO.line1, lang)}</motion.span></span>
+          <span className="block overflow-hidden pb-[0.05em]"><motion.span className="gold-text block pb-[0.28em] italic" {...rise(0.5)}>{t(HERO.line2, lang)}</motion.span></span>
         </h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={ready ? { opacity: 1, y: 0 } : {}} transition={{ delay: 1, duration: 1 }} className="mt-7 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg">{t(HERO.sub, lang)}</motion.p>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={ready ? { opacity: 1, y: 0 } : {}} transition={{ delay: 1.25, duration: 1 }} className="mt-10 flex flex-wrap gap-4">

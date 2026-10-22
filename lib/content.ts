@@ -17,7 +17,7 @@ export const CONTACT = {
   formEndpoint: "https://formsubmit.co/ajax/roopas51788@gmail.com",
   // OPTIONAL but recommended: free Web3Forms access key (public, safe to put here).
   // Get it at https://web3forms.com (enter roopas51788@gmail.com; key arrives by email), paste between the quotes.
-  web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "",
+  web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "ce54b161-65d7-41ff-9445-c313f1d99ea5",
 };
 
 // Only fact supplied by the owner. Everything else is qualitative on purpose.
@@ -26,12 +26,13 @@ export const YEARS_IN_BUSINESS = 20;
 type T = { en: string; kn: string };
 export const t = (x: T, l: Lang) => x[l];
 
-export const NAV: { id: string; label: T }[] = [
+export const NAV: { id: string; label: T; href?: string }[] = [
   { id: "ways", label: { en: "Ways to Work", kn: "ಕೆಲಸದ ವಿಧಾನ" } },
   { id: "process", label: { en: "Process", kn: "ಪ್ರಕ್ರಿಯೆ" } },
   { id: "studio", label: { en: "Our Garments", kn: "ನಮ್ಮ ಉಡುಪುಗಳು" } },
   { id: "about", label: { en: "About", kn: "ನಮ್ಮ ಬಗ್ಗೆ" } },
   { id: "order", label: { en: "Start an Order", kn: "ಆರ್ಡರ್" } },
+  { id: "invest", href: "/invest", label: { en: "Invest", kn: "ಹೂಡಿಕೆ" } },
 ];
 
 export const HERO = {
@@ -208,4 +209,70 @@ export const FOOTER = {
   contact: { en: "Contact", kn: "ಸಂಪರ್ಕ" },
   design: { en: "Website designed by", kn: "ವೆಬ್‌ಸೈಟ್ ವಿನ್ಯಾಸ" },
   rights: { en: "All rights reserved.", kn: "ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ." },
+};
+
+// ============================================================
+//  INVESTOR / LENDER PAGE  (/invest)
+//  No amounts, returns or interest rates are promised or shown.
+// ============================================================
+export const INVEST = {
+  navLabel: { en: "Invest", kn: "ಹೂಡಿಕೆ" },
+  back: { en: "← Back to website", kn: "← ವೆಬ್‌ಸೈಟ್‌ಗೆ ಹಿಂತಿರುಗಿ" },
+  eyebrow: { en: "For lenders & financial partners", kn: "ಸಾಲದಾತರು ಮತ್ತು ಹಣಕಾಸು ಪಾಲುದಾರರಿಗಾಗಿ" },
+  title1: { en: "From stitching for others,", kn: "ಇತರರಿಗಾಗಿ ಹೊಲಿಯುವುದರಿಂದ," },
+  title2: { en: "to building our own brand.", kn: "ನಮ್ಮದೇ ಬ್ರ್ಯಾಂಡ್ ಕಟ್ಟುವವರೆಗೆ." },
+  sub: {
+    en: "For over 20 years, Shri Jaya has stitched garments for brands and business owners. Our next step is to make and export our own brand — and we are looking for loan partners to help us get there.",
+    kn: "20ಕ್ಕೂ ಹೆಚ್ಚು ವರ್ಷಗಳಿಂದ ಶ್ರೀ ಜಯ ಬ್ರ್ಯಾಂಡ್‌ಗಳು ಮತ್ತು ವ್ಯಾಪಾರಿಗಳಿಗಾಗಿ ಉಡುಪುಗಳನ್ನು ಹೊಲಿದಿದೆ. ನಮ್ಮ ಮುಂದಿನ ಹೆಜ್ಜೆ ನಮ್ಮದೇ ಬ್ರ್ಯಾಂಡ್ ತಯಾರಿಸಿ ರಫ್ತು ಮಾಡುವುದು — ಇದಕ್ಕೆ ಸಾಲ ಸಹಭಾಗಿಗಳನ್ನು ನಾವು ಹುಡುಕುತ್ತಿದ್ದೇವೆ.",
+  },
+  cta1: { en: "Start a conversation", kn: "ಮಾತುಕತೆ ಆರಂಭಿಸಿ" },
+  cta2: { en: "See the plan", kn: "ಯೋಜನೆ ನೋಡಿ" },
+  roadmapEyebrow: { en: "Our roadmap", kn: "ನಮ್ಮ ಮಾರ್ಗಸೂಚಿ" },
+  roadmapTitle: { en: "Three steps to a business of our own.", kn: "ನಮ್ಮದೇ ವ್ಯವಹಾರದತ್ತ ಮೂರು ಹೆಜ್ಜೆಗಳು." },
+  stages: [
+    { tag: { en: "Today", kn: "ಇಂದು" }, t: { en: "Services", kn: "ಸೇವೆಗಳು" }, d: { en: "Job work and full-service stitching for brands and business owners.", kn: "ಬ್ರ್ಯಾಂಡ್‌ಗಳು ಮತ್ತು ವ್ಯಾಪಾರಿಗಳಿಗೆ ಜಾಬ್ ವರ್ಕ್ ಮತ್ತು ಪೂರ್ಣ ಸೇವೆಯ ಹೊಲಿಗೆ." } },
+    { tag: { en: "Next", kn: "ಮುಂದೆ" }, t: { en: "Our own brand", kn: "ನಮ್ಮದೇ ಬ್ರ್ಯಾಂಡ್" }, d: { en: "Design, make and sell our own garment label.", kn: "ನಮ್ಮದೇ ಉಡುಪು ಲೇಬಲ್‌ನ ವಿನ್ಯಾಸ, ತಯಾರಿ ಮತ್ತು ಮಾರಾಟ." } },
+    { tag: { en: "Future", kn: "ಭವಿಷ್ಯ" }, t: { en: "Make & export", kn: "ತಯಾರಿ ಮತ್ತು ರಫ್ತು" }, d: { en: "Manufacture in-house and export — without depending on others' orders.", kn: "ಇತರರ ಆರ್ಡರ್‌ಗಳನ್ನು ಅವಲಂಬಿಸದೆ ಸ್ವಂತವಾಗಿ ತಯಾರಿಸಿ ರಫ್ತು ಮಾಡುವುದು." } },
+  ],
+  fundsEyebrow: { en: "Where the funds go", kn: "ಹಣ ಎಲ್ಲಿ ಬಳಕೆಯಾಗುತ್ತದೆ" },
+  fundsTitle: { en: "Four areas that move us forward.", kn: "ನಮ್ಮನ್ನು ಮುನ್ನಡೆಸುವ ನಾಲ್ಕು ಕ್ಷೇತ್ರಗಳು." },
+  funds: [
+    { t: { en: "Machines & factory setup", kn: "ಯಂತ್ರಗಳು ಮತ್ತು ಕಾರ್ಖಾನೆ ಸಿದ್ಧತೆ" }, d: { en: "More production capacity and better equipment.", kn: "ಹೆಚ್ಚಿನ ಉತ್ಪಾದನಾ ಸಾಮರ್ಥ್ಯ ಮತ್ತು ಉತ್ತಮ ಉಪಕರಣಗಳು." } },
+    { t: { en: "Own brand launch", kn: "ಸ್ವಂತ ಬ್ರ್ಯಾಂಡ್ ಆರಂಭ" }, d: { en: "Design, fabric stock, branding and marketing.", kn: "ವಿನ್ಯಾಸ, ಬಟ್ಟೆ ಸಂಗ್ರಹ, ಬ್ರ್ಯಾಂಡಿಂಗ್ ಮತ್ತು ಮಾರುಕಟ್ಟೆ." } },
+    { t: { en: "Export setup", kn: "ರಫ್ತು ಸಿದ್ಧತೆ" }, d: { en: "Licences, compliance and finding buyers abroad.", kn: "ಪರವಾನಗಿ, ನಿಯಮ ಪಾಲನೆ ಮತ್ತು ವಿದೇಶಿ ಖರೀದಿದಾರರ ಹುಡುಕಾಟ." } },
+    { t: { en: "Working capital & team", kn: "ದುಡಿಯುವ ಬಂಡವಾಳ ಮತ್ತು ತಂಡ" }, d: { en: "Raw material, salaries and day-to-day running.", kn: "ಕಚ್ಚಾ ವಸ್ತು, ಸಂಬಳ ಮತ್ತು ದೈನಂದಿನ ನಿರ್ವಹಣೆ." } },
+  ],
+  fundsNote: { en: "Exact amounts and terms are shared privately with serious lenders.", kn: "ನಿಖರ ಮೊತ್ತ ಮತ್ತು ನಿಯಮಗಳನ್ನು ಗಂಭೀರ ಸಾಲದಾತರೊಂದಿಗೆ ಖಾಸಗಿಯಾಗಿ ಹಂಚಿಕೊಳ್ಳಲಾಗುತ್ತದೆ." },
+  whyEyebrow: { en: "Why Shri Jaya", kn: "ಏಕೆ ಶ್ರೀ ಜಯ" },
+  whyTitle: { en: "A working business, a clear plan.", kn: "ನಡೆಯುತ್ತಿರುವ ವ್ಯವಹಾರ, ಸ್ಪಷ್ಟ ಯೋಜನೆ." },
+  why: [
+    { t: { en: "20+ years of experience", kn: "20+ ವರ್ಷಗಳ ಅನುಭವ" }, d: { en: "Two decades in garment stitching and manufacturing.", kn: "ಉಡುಪು ಹೊಲಿಗೆ ಮತ್ತು ತಯಾರಿಕೆಯಲ್ಲಿ ಎರಡು ದಶಕಗಳು." } },
+    { t: { en: "A business already running", kn: "ಈಗಾಗಲೇ ನಡೆಯುತ್ತಿರುವ ವ್ಯವಹಾರ", }, d: { en: "We work with brands and business owners today.", kn: "ಇಂದು ನಾವು ಬ್ರ್ಯಾಂಡ್‌ಗಳು ಮತ್ತು ವ್ಯಾಪಾರಿಗಳೊಂದಿಗೆ ಕೆಲಸ ಮಾಡುತ್ತಿದ್ದೇವೆ." } },
+    { t: { en: "A step-by-step plan", kn: "ಹಂತ ಹಂತದ ಯೋಜನೆ" }, d: { en: "Services first, then our brand, then export.", kn: "ಮೊದಲು ಸೇವೆ, ನಂತರ ನಮ್ಮ ಬ್ರ್ಯಾಂಡ್, ನಂತರ ರಫ್ತು." } },
+    { t: { en: "Open communication", kn: "ಮುಕ್ತ ಸಂವಹನ" }, d: { en: "Clear numbers and terms, shared in plain words.", kn: "ಸ್ಪಷ್ಟ ಅಂಕಿ ಅಂಶ ಮತ್ತು ನಿಯಮಗಳು, ಸರಳ ಮಾತಿನಲ್ಲಿ." } },
+  ],
+  howEyebrow: { en: "How it works", kn: "ಹೇಗೆ ನಡೆಯುತ್ತದೆ" },
+  how: [
+    { t: { en: "Reach out", kn: "ಸಂಪರ್ಕಿಸಿ" }, d: { en: "Send us a short note below.", kn: "ಕೆಳಗೆ ಸಣ್ಣ ಸಂದೇಶ ಕಳುಹಿಸಿ." } },
+    { t: { en: "Private conversation", kn: "ಖಾಸಗಿ ಮಾತುಕತೆ" }, d: { en: "We share our plan and figures directly with you.", kn: "ನಮ್ಮ ಯೋಜನೆ ಮತ್ತು ಅಂಕಿ ಅಂಶಗಳನ್ನು ನೇರವಾಗಿ ನಿಮ್ಮೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳುತ್ತೇವೆ." } },
+    { t: { en: "Review & agree", kn: "ಪರಿಶೀಲಿಸಿ ಒಪ್ಪಿಕೊಳ್ಳಿ" }, d: { en: "Terms are agreed in writing after due diligence.", kn: "ಪರಿಶೀಲನೆಯ ನಂತರ ನಿಯಮಗಳನ್ನು ಲಿಖಿತವಾಗಿ ಒಪ್ಪಿಕೊಳ್ಳಲಾಗುತ್ತದೆ." } },
+  ],
+  formEyebrow: { en: "Let's talk", kn: "ಮಾತನಾಡೋಣ" },
+  formTitle: { en: "Interested in partnering with us?", kn: "ನಮ್ಮೊಂದಿಗೆ ಪಾಲುದಾರರಾಗಲು ಆಸಕ್ತಿ ಇದೆಯೇ?" },
+  fields: {
+    name: { en: "Your name", kn: "ನಿಮ್ಮ ಹೆಸರು" },
+    org: { en: "Organisation / bank (if any)", kn: "ಸಂಸ್ಥೆ / ಬ್ಯಾಂಕ್ (ಇದ್ದರೆ)" },
+    interest: { en: "I am interested in", kn: "ನನ್ನ ಆಸಕ್ತಿ" },
+    ticket: { en: "Approx. amount you can offer (optional)", kn: "ನೀವು ನೀಡಬಹುದಾದ ಅಂದಾಜು ಮೊತ್ತ (ಐಚ್ಛಿಕ)" },
+    msg: { en: "A few words about you", kn: "ನಿಮ್ಮ ಬಗ್ಗೆ ಕೆಲವು ಮಾತುಗಳು" },
+  },
+  interestLoan: { en: "Lending / loan funding", kn: "ಸಾಲ ನೀಡಿಕೆ / ಸಾಲ ಹಣಕಾಸು" },
+  interestOther: { en: "Another way to support", kn: "ಬೆಂಬಲಿಸಲು ಬೇರೆ ದಾರಿ" },
+  submit: { en: "Send to Shri Jaya", kn: "ಶ್ರೀ ಜಯಕ್ಕೆ ಕಳುಹಿಸಿ" },
+  thanks: { en: "Thank you. Roopa S will get in touch with you personally.", kn: "ಧನ್ಯವಾದಗಳು. ರೂಪಾ ಎಸ್ ಅವರು ನಿಮ್ಮನ್ನು ವೈಯಕ್ತಿಕವಾಗಿ ಸಂಪರ್ಕಿಸುತ್ತಾರೆ." },
+  disclaimer: {
+    en: "This page is an invitation to talk, not an offer to the public. No returns are promised. All terms are subject to due diligence and a written agreement.",
+    kn: "ಈ ಪುಟ ಮಾತುಕತೆಗೆ ಆಹ್ವಾನ ಮಾತ್ರ; ಸಾರ್ವಜನಿಕರಿಗೆ ನೀಡುವ ಪ್ರಸ್ತಾಪವಲ್ಲ. ಯಾವುದೇ ಲಾಭದ ಭರವಸೆ ಇಲ್ಲ. ಎಲ್ಲಾ ನಿಯಮಗಳು ಪರಿಶೀಲನೆ ಮತ್ತು ಲಿಖಿತ ಒಪ್ಪಂದಕ್ಕೆ ಒಳಪಟ್ಟಿವೆ.",
+  },
+  waMsg: { en: "Hello Roopa, I am interested in partnering with Shri Jaya.", kn: "ನಮಸ್ಕಾರ ರೂಪಾ, ಶ್ರೀ ಜಯದೊಂದಿಗೆ ಪಾಲುದಾರರಾಗಲು ನನಗೆ ಆಸಕ್ತಿ ಇದೆ." },
 };

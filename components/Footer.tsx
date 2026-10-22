@@ -1,5 +1,5 @@
 "use client";
-import { CONTACT, FOOTER, t } from "@/lib/content";
+import { CONTACT, FOOTER, INVEST, t } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 export default function Footer() {
@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="gold-line mt-10" />
         <div className="mt-6 flex flex-col items-center justify-between gap-2 text-xs text-cream/50 sm:flex-row">
           <p>© {new Date().getFullYear()} Shri Jaya · {CONTACT.owner}. {t(FOOTER.rights, lang)}</p>
-          <p>{t(FOOTER.design, lang)} {CONTACT.designer}</p>
+          <p><a href="/invest" className="mr-5 text-gold2/80 transition hover:text-gold2">{t(INVEST.navLabel, lang)} →</a>{t(FOOTER.design, lang)} {CONTACT.designer}</p>
         </div>
       </div>
     </footer>
