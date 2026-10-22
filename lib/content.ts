@@ -20,6 +20,7 @@ export const CONTACT = {
   web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "ce54b161-65d7-41ff-9445-c313f1d99ea5",
 };
 
+
 // Only fact supplied by the owner. Everything else is qualitative on purpose.
 export const YEARS_IN_BUSINESS = 20;
 
