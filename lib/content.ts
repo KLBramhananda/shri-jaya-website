@@ -20,7 +20,6 @@ export const CONTACT = {
   web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "ce54b161-65d7-41ff-9445-c313f1d99ea5",
 };
 
-
 // Only fact supplied by the owner. Everything else is qualitative on purpose.
 export const YEARS_IN_BUSINESS = 20;
 
@@ -156,7 +155,6 @@ export const ABOUT = {
   },
   yearsLabel: { en: "years in business", kn: "ವರ್ಷಗಳ ವ್ಯವಹಾರ" },
   ownerTitle: { en: "Founder & Owner", kn: "ಸಂಸ್ಥಾಪಕರು ಮತ್ತು ಮಾಲೀಕರು" },
-  ownerPhoto: "/my_photos/roopa.jpeg",
   values: [
     { t: { en: "Checked at every stage", kn: "ಪ್ರತಿ ಹಂತದಲ್ಲೂ ಪರಿಶೀಲನೆ" }, d: { en: "From cutting to packing, quality is inspected — not left to the end.", kn: "ಕಟಿಂಗ್‌ನಿಂದ ಪ್ಯಾಕಿಂಗ್‌ವರೆಗೆ ಗುಣಮಟ್ಟ ಪರಿಶೀಲನೆ — ಕೊನೆಗೆ ಬಿಡುವುದಿಲ್ಲ." } },
     { t: { en: "Flexible ways to work", kn: "ಹೊಂದಿಕೊಳ್ಳುವ ವಿಧಾನ" }, d: { en: "Bring your own material or let us source it. You decide.", kn: "ನಿಮ್ಮ ಸಾಮಗ್ರಿ ತನ್ನಿ ಅಥವಾ ನಾವು ಹುಡುಕುತ್ತೇವೆ. ನಿರ್ಧಾರ ನಿಮ್ಮದು." } },
