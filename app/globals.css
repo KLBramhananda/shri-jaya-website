@@ -42,3 +42,4 @@ html[lang="kn"] .eyebrow { letter-spacing: .08em; text-transform:none; font-size
 .spin-rev { animation: spin-rev 70s linear infinite; transform-origin: center; }
 .tilt { transform: rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)); transition: transform .18s ease-out; transform-style: preserve-3d; will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .sway,.floaty,.spin-slow,.spin-rev { animation: none; } .tilt { transform: none; } }
+@keyframes pulse-pin { 0% { box-shadow: 0 0 0 0 rgba(217,178,106,.75); } 70%,100% { box-shadow: 0 0 0 14px rgba(217,178,106,0); } }

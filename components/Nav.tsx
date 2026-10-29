@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { NAV, t } from "@/lib/content";
+import { NAV, INVEST, t } from "@/lib/content";
 import { useLang } from "@/lib/lang";
 
 function go(id: string) {
@@ -40,9 +40,13 @@ export default function Nav() {
             {NAV.map((n) => n.href ? (<a key={n.id} href={n.href} className="rounded-full border border-gold/50 px-4 py-1.5 text-sm tracking-wide text-gold2 transition hover:bg-gold hover:text-ink">{t(n.label, lang)}</a>) : (<button key={n.id} onClick={() => go(n.id)} className="text-sm tracking-wide text-cream/80 transition hover:text-gold2">{t(n.label, lang)}</button>))}
             <LangBtn />
           </nav>
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
+            <a href="/invest" className="relative flex items-center gap-1.5 rounded-full border border-gold bg-gold/15 px-3 py-1.5 text-xs font-medium text-gold2 shadow-[0_0_18px_-4px_rgba(184,134,59,.6)] transition active:scale-95">
+              <span className="relative flex h-1.5 w-1.5"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold2 opacity-75" /><span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-gold2" /></span>
+              {t(INVEST.navLabel, lang)}
+            </a>
             <LangBtn />
-            <button onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open} className="flex h-10 w-10 flex-col items-center justify-center gap-1.5">
+            <button onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open} className="flex h-10 w-9 sm:w-10 flex-col items-center justify-center gap-1.5">
               <span className={`h-px w-6 bg-cream transition ${open ? "translate-y-[3.5px] rotate-45" : ""}`} />
               <span className={`h-px w-6 bg-cream transition ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`} />
             </button>

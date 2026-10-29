@@ -35,6 +35,13 @@ export default function Hero({ ready }: { ready: boolean }) {
           <Magnetic><button onClick={() => go("order")} className="rounded-full bg-gradient-to-r from-bronze via-gold to-gold2 px-8 py-4 text-sm font-medium tracking-wide text-ink shadow-[0_10px_40px_-10px_rgba(184,134,59,.7)]">{t(HERO.cta1, lang)}</button></Magnetic>
           <Magnetic><button onClick={() => go("ways")} className="rounded-full border border-gold/60 px-8 py-4 text-sm tracking-wide text-cream transition hover:bg-gold/10">{t(HERO.cta2, lang)}</button></Magnetic>
         </motion.div>
+        <motion.a href="/invest" initial={{ opacity: 0, y: 24 }} animate={ready ? { opacity: 1, y: 0 } : {}} transition={{ delay: 1.6, duration: 1 }} className="group mt-9 flex max-w-md items-center gap-4 rounded-2xl border border-gold/40 bg-white/[0.05] p-4 backdrop-blur-md transition active:scale-[.98] lg:hidden">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-bronze to-gold text-lg text-ink">↗</span>
+          <span className="min-w-0">
+            <span className="block font-display text-xl leading-snug text-cream">{t(HERO.investTitle, lang)}</span>
+            <span className="mt-0.5 block text-xs leading-snug text-gold2">{t(HERO.investCta, lang)}</span>
+          </span>
+        </motion.a>
       </div>
       <motion.div initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}} transition={{ delay: 1.8 }} className="absolute bottom-7 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-3 sm:flex">
         <span className="eyebrow !text-[10px]">{t(HERO.scroll, lang)}</span>

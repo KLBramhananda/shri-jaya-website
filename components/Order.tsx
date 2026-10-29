@@ -1,7 +1,7 @@
 "use client";
 import { FormEvent, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ORDER, CONTACT, t } from "@/lib/content";
+import { ORDER, CONTACT, STUDIO, t } from "@/lib/content";
 import { sendEnquiry } from "@/lib/send";
 import { useLang } from "@/lib/lang";
 import { Reveal, SectionHead, Magnetic } from "./ui";
@@ -99,7 +99,7 @@ export default function Order() {
                   <label className="sm:col-span-2"><Lbl>{t(f.model, lang)}</Lbl>
                     <select name="model" className={cls("model")} defaultValue="a"><option value="a">{t(ORDER.modelA, lang)}</option><option value="b">{t(ORDER.modelB, lang)}</option></select></label>
                   <label><Lbl>{t(f.garment, lang)}</Lbl>
-                    <select name="garment" className={cls("garment")}><option>{t(ORDER.shirt, lang)}</option><option>{t(ORDER.pant, lang)}</option><option>{t(ORDER.both, lang)}</option></select></label>
+                    <select name="garment" className={cls("garment")}>{STUDIO.styles.map((s) => <option key={s.id}>{t(s.n, lang)}</option>)}<option>{t(ORDER.both, lang)}</option></select></label>
                   <label><Lbl>{t(f.qty, lang)}</Lbl><input name="qty" inputMode="numeric" className={cls("qty")} /></label>
                   <label className="sm:col-span-2"><Lbl>{t(f.msg, lang)}</Lbl><textarea name="msg" rows={4} className={cls("msg")} /></label>
                   <div className="sm:col-span-2">
